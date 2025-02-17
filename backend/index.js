@@ -4,7 +4,10 @@ const cors = require('cors');
 const { exec } = require('child_process');
 const multer = require('multer');
 const connection = require('./db');
-
+const doctorRoutes = require('./routes/createDoctor.js'); // Adjust the path to your new route file
+const appointmentRoutes = require('./routes/appointment.js')
+const payments = require('./routes/payment.js')
+const meeting = require('./routes/meeting.js')
 
 // Database connection
 connection();
@@ -24,6 +27,13 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+// Serve static files from 'uploads' directory
+app.use('/uploads/', express.static('uploads'));
+app.use('/api/meetings', meeting);
+// Use the doctor routes
+app.use('/api/doctors', doctorRoutes);
+app.use('/api/appointments', appointmentRoutes);
+app.use('/api/payments', payments);
 
 
 const port = 8050;
