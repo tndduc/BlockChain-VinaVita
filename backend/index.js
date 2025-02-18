@@ -8,13 +8,16 @@ const doctorRoutes = require('./routes/createDoctor.js'); // Adjust the path to 
 const appointmentRoutes = require('./routes/appointment.js')
 const payments = require('./routes/payment.js')
 const meeting = require('./routes/meeting.js')
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 // Database connection
 connection();
 
 // Middlewares
 app.use(express.json());
 app.use(cors());
+// Swagger UI route
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Configure Multer (adjust storage as needed)
 const storage = multer.diskStorage({

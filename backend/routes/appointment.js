@@ -25,7 +25,15 @@ const transporter = nodemailer.createTransport({
     pass: passwordGmail,
   },
 });
-
+/**
+ * @openapi
+ * /api/example:
+ *   get:
+ *     summary: Returns an example
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
 router.get('/detailedEarnings', async (req, res) => {
   try {
     const appointments = await Appointment.find({}, 'patientName patientEmail date paymentAmount');
@@ -42,7 +50,15 @@ router.get('/detailedEarnings', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-
+/**
+ * @openapi
+ * /getDoctors:
+ *   get:
+ *     summary: Returns an example
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
 
 // Route to retrieve all doctors
 router.get('/getDoctors', async (req, res) => {
