@@ -3,12 +3,12 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 8545,
-      network_id: "*", // Kết nối với mọi network ID
+      network_id: "*", 
     },
   },
   compilers: {
     solc: {
-      version: "0.8.10", // Đảm bảo phiên bản phù hợp
+      version: "0.8.10", 
     },
   },
 };
