@@ -180,7 +180,7 @@ router.post('/notifyPatient/:appointmentID/:meetingID/', async (req, res) => {
 const emailMessage = `Dear ${patientNameNoSpaces}, Your Online telemedicine session with Dr.${doctorNameNoSpaces} has been initiated by the doctor. Please log in and join the telemedicine session immediately. Use the room ID ${appointment.roomID} or Join using the following link. http://localhost:3000/videoCall/${appointment.roomID}/${patientNameNoSpaces}/patient/${appointment._id}/${meetingID} ${appointment.time}.`;
 
       // Sending SMS
-      await sendSMS(appointment.patientContactNo, smsMessage);
+      // await sendSMS(appointment.patientContactNo, smsMessage);
   
       // Sending Email
       const mailOptions = {

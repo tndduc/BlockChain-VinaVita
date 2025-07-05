@@ -302,7 +302,7 @@ router.put('/acceptAppointment/:id', async (req, res) => {
 
     // Sending Email
     const mailOptions = {
-      from: 'sahiru.teengrad@@gmail.com',
+      from: 'heathcare.vku@gmail.com',
       to: appointment.patientEmail,
       subject: 'Appointment Confirmation',
       text: appointment.mode === 'Online' ? OnlineMessage : InPersonMessage,
@@ -313,7 +313,7 @@ router.put('/acceptAppointment/:id', async (req, res) => {
         console.error('Error sending email:', error);
       } else {
         console.log('Email sent: ' + info.response);
-      }oi
+      }
     });
 
     // Save the updated appointment
@@ -430,17 +430,17 @@ router.get('/acceptedAppointments/:doctorEmail', async (req, res) => {
   }
 });
 
-async function sendSMS(to, message) {
-  try {
-    await client.messages.create({
-      body: message,
-      from: twilioPhoneNumber,
-      to: to,
-    });
-    console.log('SMS sent successfully.');
-  } catch (err) {
-    console.error('Error sending SMS:', err);
-  }
-}
+// async function sendSMS(to, message) {
+//   try {
+//     await client.messages.create({
+//       body: message,
+//       from: twilioPhoneNumber,
+//       to: to,
+//     });
+//     console.log('SMS sent successfully.');
+//   } catch (err) {
+//     console.error('Error sending SMS:', err);
+//   }
+// }
 
   module.exports = router;

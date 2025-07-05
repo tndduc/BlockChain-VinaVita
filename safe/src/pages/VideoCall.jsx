@@ -32,8 +32,8 @@ export default function App() {
       setmeetingID(pathSegments[6])
       console.log(pathSegments[6])
       console.log(meetingID)
-      const appID = 1808793606;
-      const serverSecret = "e991c1271e1528feea159e47340b8275";
+      const appID = 1635623282;
+      const serverSecret = "8e0df4af5a31f2c875010044e2f58881";
       const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, Date.now().toString(), username);
       const zp = ZegoUIKitPrebuilt.create(kitToken);
 
